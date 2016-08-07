@@ -1,8 +1,13 @@
+require 'constraints/subdomain_required'
 Rails.application.routes.draw do
-  get 'home/index'
+  constraints(SubdomainRequired) do
+    get 'home/index'
 
-  devise_for :users
-  root to: 'home#index'
+    devise_for :users
+    root to: 'home#index'
+
+    resources :charges
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
