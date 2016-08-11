@@ -1,6 +1,6 @@
 require 'constraints/subdomain_required'
 Rails.application.routes.draw do
-  #constraints(SubdomainRequired) do
+  constraints(SubdomainRequired) do
     get 'home/index'
 
     devise_for :users
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     post 'receiver' => 'hooks#receiver'
     get 'receiver'  => 'hooks#receiver'
 
-    mount StripeEvent::Engine, at: 'hooks#data_receiver'
-  #end
+    resources :subscriptions
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
