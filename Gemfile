@@ -28,6 +28,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'ultrahook'
 gem 'protected_attributes'
+gem 'sinatra'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

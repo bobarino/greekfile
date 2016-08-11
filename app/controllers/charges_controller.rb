@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
   end
 
   def create
+    session[:current_user_id] = current_user.id
     # Amount in cents
     @amount = 500
 
@@ -11,6 +12,7 @@ class ChargesController < ApplicationController
       :email => params[:email],
       :source  => params[:stripeToken]
     )
+    p customer
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
