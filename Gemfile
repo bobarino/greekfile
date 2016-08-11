@@ -27,7 +27,6 @@ gem 'bootstrap-sass'
 gem 'stripe'
 gem 'stripe_event'
 gem 'ultrahook'
-gem 'payola-payments'
 gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password
