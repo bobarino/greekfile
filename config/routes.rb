@@ -1,5 +1,15 @@
+require 'constraints/subdomain_required'
 Rails.application.routes.draw do
-  resources :users
+  constraints(SubdomainRequired) do
+    get 'home/index'
+
+    devise_for :users
+    root to: 'home#index'
+
+    resources :charges
+
+  end
+  post '/hooks/receiver' => 'hooks#receiver'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
