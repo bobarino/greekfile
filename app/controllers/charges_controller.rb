@@ -22,8 +22,7 @@ class ChargesController < ApplicationController
   end
 
   def unsubscribe
-    customer = Stripe::Customer.retrieve(current_user.stripe_cust_id)
-    sub = Stripe::Subscription.retrieve("sub_8zTLIiGeouw3gz")
+    sub = Stripe::Subscription.retrieve(current_user.stripe_sub_id)
     sub.delete
     user = current_user
     current_user.active = false
