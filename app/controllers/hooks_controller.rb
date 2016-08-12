@@ -20,7 +20,7 @@ class HooksController < ApplicationController
       end
 
       if data_json['type'] == "customer.created"
-        make_customer(data_json['data']['object']['sources']['data'][0]['name'], data_json['data']['object']['id'])
+        make_customer(data_json['data']['object']['sources']['data'][0]['name'], data_json['data']['object']['id'], data_json['data']['object']['subscriptions']['data'][0]['id'])
       end
       render nothing: true, status: 200
     end
@@ -37,10 +37,10 @@ class HooksController < ApplicationController
       user.save!
     end
 
-    def make_customer(email, id)
+    def make_customer(email, cust_id, sub_id)
       user = User.where(email: email).first
-      user.stripe_cust_id = id
-      user.active = true
+      user.stripe_cust_id = cust_id
+      user.stripe_sub_id = sub_id
       user.save!
     end
 end

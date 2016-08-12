@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     devise_for :users
     root to: 'home#index'
 
+    get 'charges/manage' => 'charges#manage', :as => :manage
+    get 'charges/unsubscribe' => 'charges#unsubscribe', :as => :unsubscribe
     resources :charges
 
   end
