@@ -1,10 +1,10 @@
-<h1><%= current_user.subdomain %> Greek File</h1>
+<h1><%= @user.subdomain %> Greek File</h1>
 <% if flash[:error] %>
   <div class="error"><%= flash[:error] %></div>
 <% end %>
 <p><a href="google.com">Browse</a></p>
 <p><a href="google.com">Upload</a></p>
-<% if current_user.active? %>
+<% if @user.active? %>
   <%= link_to 'Manage Subscription', new_charge_path %>
 <% else %>
   <%= link_to 'Purchase Subscription', new_charge_path %>
