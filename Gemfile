@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'stripe'
-gem 'stripe_event'
 gem 'ultrahook'
 gem 'protected_attributes'
 
