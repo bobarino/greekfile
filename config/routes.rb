@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   constraints(SubdomainRequired) do
     get 'home/index'
 
-    devise_for :users
+    devise_for :users, controllers: { confirmations: 'confirmations' }
     root to: 'home#index'
 
     get 'charges/manage' => 'charges#manage', :as => :manage
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :charges
 
   end
+  get 'confirmation-sent' => 'confirmations#confirmation_sent', :as => :confirmation_sent
   post '/hooks/receiver' => 'hooks#receiver'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
